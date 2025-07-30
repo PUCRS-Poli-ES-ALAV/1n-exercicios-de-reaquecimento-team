@@ -1,0 +1,78 @@
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+public class Main {
+    public static void main(String[] args) {
+        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
+        // to see how IntelliJ IDEA suggests fixing it.
+        Integer multiplicacao = multiplicacaoRecursiva(4, 5, 0);
+        System.out.println("O valor total é " +multiplicacao );
+
+        Integer soma = somaRecursiva(4,  0);
+        System.out.println("O valor total é " +soma );
+
+        Integer divisao = divisao1Recursiva(1, 0);
+        System.out.println("O valor total é " +divisao );
+
+    }
+    public static Integer multiplicacaoRecursiva(Integer nVezes, Integer valor, Integer somaTotal){
+        if(nVezes == 0){
+            return somaTotal;
+        }
+
+        somaTotal += valor;
+        nVezes--;
+        Integer somaFinal = multiplicacaoRecursiva(nVezes, valor, somaTotal);
+        return somaFinal;
+    };
+
+    public static Integer somaRecursiva(Integer valor, Integer somaTotal){
+        if(valor == 0){
+            return somaTotal;
+        }
+
+        somaTotal += valor;
+        valor--;
+        Integer somaFinal = somaRecursiva(valor, somaTotal);
+        return somaFinal;
+    };
+
+    public static Integer divisao1Recursiva(Integer valor, Integer somaTotal){
+        if(valor == 0){
+            return somaTotal+1;
+        }
+
+        somaTotal += 1/valor;
+        valor--;
+        Integer somaFinal = divisao1Recursiva(valor, somaTotal);
+        return somaFinal;
+    };
+
+    public static String inverteString(String string, Integer posicaoFim,Integer posicaoInicio){
+        if(string.length()%2==0){
+            if(posicaoFim<=string.length()/2){
+                return string;
+            }
+        }else{
+            if(posicaoFim<=(string.length()/2)+1){
+                return string;
+            }
+        }
+        String inicioPreservar="";
+        String finalPreservar ="";
+        if(posicaoInicio!=0){
+            inicioPreservar = string.substring(0, posicaoInicio-1);
+            finalPreservar = string.substring(posicaoFim-posicaoInicio, posicaoFim);
+        }
+        
+        
+        char letraInicioTrocar = string.charAt(posicaoInicio);
+        char letraFinalTrocar = string.charAt(posicaoFim);
+        String meio = string.substring(posicaoInicio+1, posicaoFim-1);
+        string = letraFinalTrocar+meio+letraInicioTrocar;
+
+        posicaoFim-=1;
+        posicaoInicio+=1;
+        String stringFinal = inverteString(valor, somaTotal);
+        return somaFinal;
+    };
+}
